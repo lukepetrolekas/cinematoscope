@@ -24,11 +24,12 @@ import argparse
 import logging
 import sys
 
-from cinematoscope import __version__
+from cinematoscope import Application
 
 __author__ = "Luke Petrolekas"
 __copyright__ = "Luke Petrolekas"
-__license__ = "MIT"
+__license__ = "GNU Affero License"
+__version__ = "0.0.1"
 
 _logger = logging.getLogger(__name__)
 
@@ -125,6 +126,9 @@ def main(args):
     _logger.debug("Starting crazy calculations...")
     print("The {}-th Fibonacci number is {}".format(args.n, fib(args.n)))
     _logger.info("Script ends here")
+
+    app = Application()
+    return app.run()
 
 
 def run():
