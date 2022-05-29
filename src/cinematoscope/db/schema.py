@@ -108,7 +108,7 @@ film_object = Table('film_object', metadata_obj,
 
 # The user's categories
 category = Table('category', metadata_obj,
-    Column('id', primary_key=True),
+    Column('id', Integer, primary_key=True),
     Column('category', String(64), nullable=False, unique=True),
     Column('color', Integer, nullable=False, default=0))
 
@@ -121,7 +121,7 @@ film_category = Table('identifier', metadata_obj,
 
 # Some users like leaving notes, maintain similar functionality
 note = Table('note', metadata_obj,
-    Column('id', primary_key=True),
+    Column('id', Integer, primary_key=True),
     Column('film_object_id', ForeignKey('film_object.id'), nullable=False),
     Column('note', Text()))
 

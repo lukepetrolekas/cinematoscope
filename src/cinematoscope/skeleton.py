@@ -23,6 +23,7 @@ References:
 import argparse
 import logging
 import sys
+import db.layer
 
 from cinematoscope import Application
 
@@ -128,6 +129,8 @@ def main(args):
     _logger.info("Script ends here")
 
     app = Application()
+
+    db.layer.do()
     return app.run()
 
 
