@@ -75,10 +75,11 @@ entity = Table('entity', metadata_obj,
     Column('wiki_qid', BigInteger, default=0, unique=True))
 
 # jobs in making a film
+# notice wiki_pid, being property instead of qid.
 job = Table('job', metadata_obj,
     Column('id', Integer, primary_key=True),
     Column('name', String(128), nullable=False, default="", unique=True),
-    Column('wiki_qid', BigInteger, default=0, unique=True))
+    Column('wiki_pid', BigInteger, default=0, unique=True))
 
 # how an entity has participated in making a film
 film_job = Table('film_job', metadata_obj,
