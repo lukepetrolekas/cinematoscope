@@ -1,5 +1,8 @@
 from sqlalchemy import *
 import datetime
+from sqlalchemy.orm import registry
+
+mapper_registry = registry()
 
 metadata_obj = MetaData()
 
@@ -80,6 +83,11 @@ job = Table('job', metadata_obj,
     Column('id', Integer, primary_key=True),
     Column('name', String(128), nullable=False, default="", unique=True),
     Column('wiki_pid', BigInteger, default=0, unique=True))
+
+class Job:
+    pass
+
+mapper_registry.map_imperatively(Job, job)
 
 # how an entity has participated in making a film
 film_job = Table('film_job', metadata_obj,
